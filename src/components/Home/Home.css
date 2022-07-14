@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+* {
+    font-family: "Montserrat";
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: #F3F3F3;
+
+
+}
+
+
+
+.slider{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+
+}
+
+.slider ul{
+    display: flex;
+    padding: 0;
+    width: 300%;
+    animation: cambio 20s infinite;
+}
+
+.slider li{
+    width: 100%;
+    list-style:none ;
+}
+.slider img{
+    width: 100%;
+}
+
+@keyframes cambio {
+    0% {margin-left: 0;}
+    20%{margin-left: 0;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+}
+.all {
+    font-size: 1.5VW;
+    line-height: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 8px;
+    position: relative;
+    left: 2vw;
+    top: 2vw;
+
+
+
+}
+
+.names {
+    position: relative;
+    left: 5vw;
+
+
+
+}
+
+
+
+.boton {
+
+    font-size: 0.9vw;
+    position: relative;
+    left:6vw;
+    width: 8vw;
+    top: 1.2vw;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: #404040;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 8px 15px rgba(148, 173, 4, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
+.Top {
+
+    font-size: 1.5VW;
+    position: relative;
+    top: 80px;
+    margin-bottom: 8vw;
+    
+}
+
+
+
+.sold{
+
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    position: relative;
+    left: 3vw;
+
+}
+
+.opinions {
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 5vw
+}
+
+.under-text {
+    position: relative;
+    top:5vw;
+    font-size: 1vw;
+    text-align: center;
+
+
+}
+
+
+.testimonials {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2vw;
+
+}
+
+.frame {
+    background-color: #C4C4C4;
+    border-radius: 10px;
+    padding: 0.5vw;
+    text-align: center;
+    position: relative;
+    top: 8vw;
+    bottom: 1vw;
+
+}
+
+.frame h5 {
+    font-size: 20px;
+}
+
+.Photo {
+
+
+    position: relative;
+    top: 10vw;
+    left: 12vw;
+
+}
+
+cite {
+    position: relative;
+    left: 11vw;
+    top: 11vw;
+
+}
+
+.stats {
+    font-size: 20px;
+    line-height: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 8px;
+    position: relative;
+    left: 2vw;
+    top: 6vw;
+}
+
+b {
+    background-color: #C4C4C4;
+    transform: rotate(90deg);
+    width: 66px;
+    height: 2px;
+    position: relative;
+    left: 5vw;
+    top: 10.5vw
+}
+
+.stats h3 {
+    font-size: 30px;
+    font-weight: 800;
+    position: relative;
+    top: 14vw;
+    left: 8vw;
+}
+
+.stats h4 {
+    font-size: 15px;
+    position: relative;
+    left: 8vw;
+    top: 13vw
+} 

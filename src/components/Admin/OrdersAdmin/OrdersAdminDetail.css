@@ -1,0 +1,23 @@
+/* .product-detail{
+    display: grid;
+    padding-left: 0px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 10px;
+}
+
+/* .container-detail{
+    display: grid;
+    padding-left: 0px;
+    grid-template-columns: repeat(2, 1fr);  
+    background-color: rgb(201, 200, 200);
+    background-size: cover;
+    min-height: 100vh;
+} */
+
+/* .user-info{
+    border: 2px solid black;
+} */ 
+.container{
+    background-color: aqua;
+    
+}

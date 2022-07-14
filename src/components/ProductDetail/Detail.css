@@ -1,0 +1,13 @@
+.detalle{
+    
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    /* width: 70%;
+    height: 70%;
+    margin-top: 90px; */
+    margin-top: 20px;
+}
+
+.disable{
+    display: none;
+}

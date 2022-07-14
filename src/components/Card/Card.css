@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .img{
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    
+  }
+  .card {
+    transition: all 0.5s;
+    @apply bg-gray-300 text-gray-700 w-72 min-h-[5rem] shadow-lg rounded-md overflow-hidden
+    justify-center;
+  }
+  .badge {
+    @apply px-1 py-1 rounded-full text-sm bg-gray-100 capitalize font-semibold ;
+  }
+
+  .Product-title {
+    @apply font-semibold text-xl
+      overflow-ellipsis overflow-hidden whitespace-nowrap capitalize;
+  }
+  .discount-percent {
+    @apply bg-green-400
+      px-1.5 py-0.5 rounded-md
+      text-xs;
+  }
+  .button-primary {
+    @apply bg-black hover:bg-gray-700
+      hover:text-gray-200
+      px-1 py-1 rounded-md
+      text-white font-medium
+      text-xs
+      tracking-wider transition;
+  }
+  .fav-button{
+    @apply bg-black hover:bg-gray-700
+    hover:text-gray-200
+    px-1 rounded-md
+    ml-12
+    text-white
+    tracking-wider transition;
+  }
+}
+@layer utilities{
+   .On{
+  
+  transform: translateX(15px);
+  @apply text-lg
+}
+.Off{
+  @apply text-lg
+}
+}
+
+
+
+.card:hover {
+  box-shadow: 0px 12px 16px rgb(0, 0, 0.2);
+  margin-top: 30px;
+  transform: translateY(-10px);
+}

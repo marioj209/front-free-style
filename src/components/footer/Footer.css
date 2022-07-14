@@ -1,0 +1,49 @@
+.footer {
+    background-color: black;
+    width: 100%;
+    height: 385px;
+    color: #FFFFFF;
+    position: relative;
+    margin-top: 10rem;
+
+    
+
+}
+
+.footer h4 {
+    font-size: 1.5vw;
+    position: relative;
+    left: 10vw;
+}
+
+
+.link {
+
+    color: #FFFFFF;
+    font-size: 1vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 14.1vw;
+    position: relative;
+    left: 10vw;
+    top: 5VW;
+
+
+
+}
+
+.link h5 {
+    font-size: 0.9vw;
+    color: #FFFFFF;
+
+
+}
+
+.link h6 {
+    font-size: 0.9vw;
+    color: #FFFFFF;
+    position: relative;
+    top: 13vw;
+    left: 33vw;
+
+}

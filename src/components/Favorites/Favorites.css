@@ -1,0 +1,25 @@
+.container-favorites{
+
+    /* display: flex ;
+    flex-wrap: wrap; */
+    display: grid;
+    padding-left: 50px;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 30px;
+    
+}
+.radial{
+height: 100%;
+background: rgb(154,154,154);
+background: radial-gradient(circle, rgba(154,154,154,1) 0%, rgb(33, 33, 33) 74%);
+}
+.containerCard{
+
+    /* display: flex ;
+    flex-wrap: wrap; */
+    display: grid;
+    padding-left: 160px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    
+}

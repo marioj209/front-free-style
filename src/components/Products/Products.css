@@ -1,0 +1,46 @@
+.productsCards{
+    font-size: 2vw;
+ display: flex;
+ justify-content: center;
+ margin: 3vw;
+ font-weight: 600;  
+
+}
+
+.cards2{
+    display: grid;
+  margin: 5vw;
+    grid-template-columns: repeat(4, 2fr);
+    column-gap: 1vw;
+    row-gap: 2vw;
+    
+    
+}
+
+
+.cards2 {
+    grid-row: 1/5;
+    grid-column: 1/2;
+    grid-auto-flow: column;
+}
+
+.card2{
+    grid-row: 1/5;
+    grid-column: 1/2;
+
+}
+
+.card3{
+    grid-column: 2/5;
+}
+
+.containerCards{
+
+    /* display: flex ;
+    flex-wrap: wrap; */
+    display: grid;
+    padding-left: 160px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    
+}

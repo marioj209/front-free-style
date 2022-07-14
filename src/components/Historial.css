@@ -1,0 +1,5 @@
+.radial{
+height: 100%;
+background: rgb(154,154,154);
+background: radial-gradient(circle, rgba(154,154,154,1) 0%, rgb(33, 33, 33) 74%);
+}
