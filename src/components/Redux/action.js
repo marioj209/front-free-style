@@ -66,7 +66,7 @@ export const getProductAdmi =
     search = "",
   }) =>
   async (dispatch) => {
-    const product = await axios.get("http://localhost:3001/productAdmin", {
+    const product = await axios.get(`${REACT_APP_BACKEND_URL}/productAdmin`, {
       params: {
         id: id,
         price: price,
@@ -244,7 +244,7 @@ export function userDetailAdmin(email) {
 export function getAllUsers() {
   return async function (dispatch) {
     var json = await axios.get(
-      "http://localhost:3001/users?email=abudget4@rediff.com"
+      `${REACT_APP_BACKEND_URL}/users?email=abudget4@rediff.com`
     );
 
     return dispatch({
@@ -255,7 +255,7 @@ export function getAllUsers() {
 }
 export function updateProduct(id) {
   return async function (dispatch) {
-    var json = await axios.delete(`http://localhost:3001/product/${id}`);
+    var json = await axios.delete(`${REACT_APP_BACKEND_URL}"/product/${id}`);
 
     return dispatch({
       type: UPDATE_PRODUCT,
@@ -267,7 +267,7 @@ export function updateProduct(id) {
 export function updateDetail(id, data) {
   console.log(data, "soy data");
   return async function (dispatch) {
-    var json = await axios.put(`http://localhost:3001/product/${id}`, data);
+    var json = await axios.put(`${REACT_APP_BACKEND_URL}/product/${id}`, data);
 
     return dispatch({
       type: UPDATE_DETAIL,
@@ -278,7 +278,7 @@ export function updateDetail(id, data) {
 
 export function createProduct(payload) {
   return async function (dispatch) {
-    var json = await axios.post("http://localhost:3001/product", payload, {
+    var json = await axios.post(`${REACT_APP_BACKEND_URL}/product`, payload, {
       headers: { "Content-Type": "multipart/form-data" },
     });
 
@@ -309,13 +309,13 @@ export const getAdminOrderDetail = (email, id) => async (dispatch) => {
 export const process_payment =
   ({ data, body }) =>
   async () => {
-    axios.post(`http://localhost:3001/mp/process_payment${data}`, body);
+    axios.post(`${REACT_APP_BACKEND_URL}/mp/process_payment${data}`, body);
   };
 
 export function getUserByEmail(payload) {
   return async function (dispatch) {
     var json = await axios.get(
-      `http://localhost:3001/profile?email=${payload}`
+      `${REACT_APP_BACKEND_URL}/profile?email=${payload}`
     );
     return dispatch({
       type: GET_USER_BY_EMAIL,
@@ -343,7 +343,9 @@ export const removeFavorites =
 
 export function userType(email) {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/verify?email=${email}`);
+    var json = await axios.get(
+      `${REACT_APP_BACKEND_URL}/verify?email=${email}`
+    );
     return dispatch({
       type: USER_TYPE,
       payload: json.data,
@@ -353,7 +355,7 @@ export function userType(email) {
 
 export function userHistoryPay(email) {
   return async function (dispatch) {
-    var json = await axios.get(`http://localhost:3001/order/${email}`);
+    var json = await axios.get(`${REACT_APP_BACKEND_URL}/order/${email}`);
     return dispatch({
       type: USER_HISTORY,
       payload: json.data,
@@ -364,7 +366,7 @@ export function userHistoryPay(email) {
 export const getOrderDetail = (id) => async (dispatch) => {
   //console.log(id, 'para el detalle')
   const response = await axios.get(
-    `http://localhost:3001/order/detail?id=${id}`
+    `${REACT_APP_BACKEND_URL}/order/detail?id=${id}`
   );
   return dispatch({ type: GET_ORDER_DETAIL, payload: response.data });
 };
