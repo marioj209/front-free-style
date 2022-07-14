@@ -10,6 +10,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import defaultImg from "../../../img/descarga (1).jpg";
 import Swal from "sweetalert2";
+const { REACT_APP_BACKEND_URL } = process.env;
+
 
 export default function EditProfile() {
   const navigate = useNavigate();
@@ -70,7 +72,7 @@ export default function EditProfile() {
       onSubmit={async (values) => {
         console.log(values, "valores");
         await axios
-          .put(`http://localhost:3001/profile/${id}`, values)
+          .put(`${REACT_APP_BACKEND_URL}/profile/${id}`, values)
           .then((response) => {
             Swal.fire({
               position: "center",
