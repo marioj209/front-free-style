@@ -1,28 +1,25 @@
 import { React } from "react";
 import Cart from "./Cart";
-import { useEffect,useState} from "react";
-import "./Carts.css"
+import { useEffect, useState } from "react";
+import "./Carts.css";
 import Counter from "./Counter";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 
-
-
 function Carts() {
-  const carro = useSelector((state) => state?.cart.stock)
-  console.log(carro,'esto es el carro')
+  const carro = useSelector((state) => state?.cart.stock);
+  console.log(carro, "esto es el carro");
   let cart;
-  
+
   cart = localStorage.getItem("cart");
-  
+
   const [product, setProduct] = useState(JSON.parse(cart));
 
-useEffect(() => {
-    const cart2= localStorage.getItem("cart");
-   // const product2 = JSON.parse(cart2);
+  useEffect(() => {
+    const cart2 = localStorage.getItem("cart");
+    // const product2 = JSON.parse(cart2);
+  }, [cart]);
 
-}, [cart])
- 
   function handleDelete(id) {
     // console.log(id,'soy el id')
     // e.preventDefault();
@@ -30,21 +27,18 @@ useEffect(() => {
     const filter = product.filter((f) => f.id !== id);
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(filter));
-    setProduct(filter)
+    setProduct(filter);
     // console.log(product,'soy el produc actualizado')
 
     // const pro = localStorage.getItem(cart);
   }
-  
-  
- 
 
   const [count, setCount] = useState(1);
 
   // let contador2 = product.filter((e) => e.id === id);
   // console.log(contador2[0].quantity, "con2");
 
-  function counter(e,id) {
+  function counter(e, id) {
     e.preventDefault();
     const { name } = e.target;
 
@@ -61,7 +55,6 @@ useEffect(() => {
           icon: "error",
           title: "Oops...",
           text: "No hay más stock!",
-          
         });
       }
     } else if (name === "menos") {
@@ -80,15 +73,12 @@ useEffect(() => {
     }
   }
 
-  
   return (
     <>
-      <div>
+      <div className="dark:bg-gray-200 dark:text-black">
         {product?.length
           ? product?.map((e) => (
-            
-            <Cart
-                
+              <Cart
                 counter={counter}
                 product={product}
                 handleDelete={handleDelete}

@@ -16,19 +16,19 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import TopSellers from "../topSeller/TopSellers";
 import { useAuth } from "../../context/AuthContext";
-import adiddas from "../../img/ardidas.png"
-import nike from "../../img/naiki.png"
-import fendi from "../../img/fendi.png"
-import guess from "../../img/guess.png"
-import boss from "../../img/Boss.png"
-import calvin from "../../img/Calvin.png"
+import adiddas from "../../img/ardidas.png";
+import nike from "../../img/naiki.png";
+import fendi from "../../img/fendi.png";
+import guess from "../../img/guess.png";
+import boss from "../../img/Boss.png";
+import calvin from "../../img/Calvin.png";
 
 export default function Home() {
   //const { user } = useAuth();
 
   /* console.log(user); */
   return (
-    <div className="background">
+    <div className="background dark:bg-black dark:text-white">
       <NavBar />
       <div className="slider">
         <ul>
@@ -77,15 +77,17 @@ export default function Home() {
 
       <TopSellers />
 
-      <h2 className="opinions mt-[10rem]">Marcas Asociadas </h2>
-      <h3 className="under-text">
+      <h2 className="opinions mt-[10rem] dark:text-black ">
+        Marcas Asociadas{" "}
+      </h2>
+      <h3 className="under-text dark:text-black">
         Las marcas de vanguardia las encontras aquí{" "}
       </h3>
 
-      <div className="bg-gray-[#f3f3f3]">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          <div className="img mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
-            <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+      <div className="bg-gray-[#f3f3f3] dark:bg-gray-400 ">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 ">
+          <div className="img mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8 ">
+            <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50 ">
               <img className="max-h-32" src={adiddas} alt="Workcation" />
             </div>
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">

@@ -13,11 +13,11 @@ import {
 } from "../Redux/action";
 import Rating from "@mui/material/Rating";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Detail.css";
 import { useAuth } from "../../context/AuthContext";
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 
 export default function ProductDetail() {
   const navigate = useNavigate();
@@ -107,12 +107,12 @@ export default function ProductDetail() {
   function handleAddToCart() {
     productDetail[0].quantity = 1;
     dispatch(addToCartDetail(productDetail[0]));
-    toast.success('¡Producto añadido al carrito!', {
+    toast.success("¡Producto añadido al carrito!", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
       draggable: true,
-    })
+    });
     // console.log('me ejecute addToCart')
     // if (!objCart2.some((p) => p.name.includes(productDetail[0].name))) {
     //   setCart([...objCart2,productDetail[0]]);
@@ -169,10 +169,10 @@ export default function ProductDetail() {
     <>
       <Navbar />
       {
-        <div className="pt-4">
+        <div className="pt-4 dark:bg-black dark:text-white">
           {/* Image gallery */}
-          <div className="mt-10 max-w-2xl mb-20 mx-auto sm:px-6 lg:max-w-5xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-2">
-            <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+          <div className="mt-10 max-w-2xl mb-20 mx-auto sm:px-6 lg:max-w-5xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-2 ">
+            <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block dark:bg-gray-200">
               <img
                 src={productDetail[0] && productDetail[0].image[0]}
                 alt={productDetail[0] && productDetail[0].image[0]}
@@ -181,9 +181,9 @@ export default function ProductDetail() {
             </div>
 
             {/* Product name */}
-            <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-xl lg:pt-5 lg:px-8 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+            <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-xl lg:pt-5 lg:px-8 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8  ">
               <div className="lg:col-span-5 lg:pr-10 ">
-                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 capitalize ">
+                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 capitalize dark:text-white">
                   {productDetail[0] && productDetail[0].name}
                 </h1>
               </div>
@@ -191,11 +191,11 @@ export default function ProductDetail() {
               {/* Product Description & category */}
               <div className=" mt-2 py-10 lg:pt-6 lg:pb-6 lg:col-start-1 lg:col-span-2">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     Descripción
                   </h3>
                   <div className="space-y-6">
-                    <p className="text-lg text-gray-900">
+                    <p className="text-lg text-gray-900 dark:text-white">
                       {productDetail[0] &&
                         productDetail[0].description.charAt(0).toUpperCase() +
                           productDetail[0].description.slice(1)}
@@ -204,9 +204,11 @@ export default function ProductDetail() {
                 </div>
 
                 <div className="mt-2">
-                  <h2 className="text-xl font-bold text-gray-900">Géneros</h2>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Géneros
+                  </h2>
                   <div className="space-y-1">
-                    <p className="text-lg text-gray-600 capitalize">
+                    <p className="text-lg text-gray-600 capitalize dark:text-white">
                       {productDetail[0] && productDetail[0].genre}
                     </p>
 
@@ -228,7 +230,7 @@ export default function ProductDetail() {
 
                 {/* Product Score */}
                 {/* Sustituir el 4 por productDetail[0].rating */}
-                <h3 className=" mt-2 text-xl font-bold text-gray-900">
+                <h3 className=" mt-2 text-xl font-bold text-gray-900 dark:text-white ">
                   Puntuación
                 </h3>
                 {productDetail[0] ? (
@@ -239,7 +241,7 @@ export default function ProductDetail() {
               {/* Product price */}
               <div className="mt-4 lg:mt-0 lg:row-span-3">
                 <h2 className="sr-only">Información del Producto</h2>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
                   Precio: ${productDetail[0] && productDetail[0].price}
                 </p>
                 <button
@@ -340,7 +342,8 @@ export default function ProductDetail() {
                           </button>
                           <button
                             className="ml-2"
-                            onClick={(e) => handleDelete(e, c.id)}>
+                            onClick={(e) => handleDelete(e, c.id)}
+                          >
                             <CancelIcon />
                           </button>
                         </div>

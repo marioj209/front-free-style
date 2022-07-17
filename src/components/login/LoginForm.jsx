@@ -73,7 +73,7 @@ function LoginForm() {
   }, [user, dispatch]);
 
   return (
-    <div className="flex w-screen bg-zinc-100 text-white h-screen justify-center items-center m-auto ">
+    <div className="flex w-screen bg-zinc-100 text-white h-screen justify-center items-center m-auto dark:bg-black dark:text-white ">
       <div
         style={divStyle}
         className="flex flex-col text-center h-3/4  w-2/5 rounded-md py-10 bg-primary  "

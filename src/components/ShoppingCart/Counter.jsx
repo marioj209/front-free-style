@@ -1,30 +1,29 @@
-import React from 'react'
-import accounting from 'accounting';
+import React from "react";
+import accounting from "accounting";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Counter({ product }) {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const { user, logout } = useAuth();
-  
+
   const handleLogout = async () => {
     await logout();
   };
-  let subTotal=0;
-  const localCounter = localStorage.getItem('cart')
-  const localCartCounter = localCounter !== null && JSON.parse(localCounter)
+  let subTotal = 0;
+  const localCounter = localStorage.getItem("cart");
+  const localCartCounter = localCounter !== null && JSON.parse(localCounter);
   if (localCartCounter) {
     // console.log(localCartCounter,'ESTE ES EL LOCALCARTCOUNTER')
-    for (let i = 0; i < product.length;i++ ) {
-      subTotal += (product[i].quantity * parseFloat(product[i].price))
+    for (let i = 0; i < product.length; i++) {
+      subTotal += product[i].quantity * parseFloat(product[i].price);
       // console.log(product.name,subTotal,'ESTE ES EL SUBTOTAL DENTRO DEL FOR')
     }
   }
   function handleCheckOut() {
     if (user?.email) {
-      navigate("/checkout")
+      navigate("/checkout");
     } else {
       Swal.fire({
         icon: "error",
@@ -35,10 +34,10 @@ function Counter({ product }) {
       });
     }
   }
-  
+
   // console.log(subTotal,'ESTE ES EL SUBTOTAL')
   return (
-    <div className="rounded-2xl bg-white box-border w-9/12 h-auto mx-auto pb-8 shadow-2xl ">
+    <div className="rounded-2xl bg-white box-border w-9/12 h-auto mx-auto pb-8 shadow-2xl dark:bg-gray-200 dark:text-black ">
       <div className="bg-white border-2 border-gray-300/100 rounded-xl m-8 pb-4 ">
         <h1 className="text-3xl m-2 ">Total a Pagar</h1>
         <h2 className="my-10 ml-5 ">
@@ -61,7 +60,7 @@ function Counter({ product }) {
 
       <div className="flex justify-center">
         <button
-          onClick={()=>handleCheckOut()}
+          onClick={() => handleCheckOut()}
           className="button-primary mx-8 text-lg  box-border w-96 py-3"
         >
           Comprar Ahora
@@ -71,4 +70,4 @@ function Counter({ product }) {
   );
 }
 
-export default Counter
+export default Counter;

@@ -10,17 +10,21 @@ import {
   getBrand,
   process_payment,
   resetAllComments,
-  userType
+  userType,
 } from "../Redux/action";
-import { useParams, useSearchParams, useLocation, useNavigate} from "react-router-dom";
+import {
+  useParams,
+  useSearchParams,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Paginado from "../Paginado/Paginado";
 import "./Products.css";
 import { useAuth } from "../../context/AuthContext";
 
-
 export default function Products() {
-  const navegate = useNavigate()
-  const { user} = useAuth()
+  const navegate = useNavigate();
+  const { user } = useAuth();
   const Products = useSelector((state) => state.products);
   const cartProduct = useSelector((state) => state.cart);
   const [params] = useSearchParams();
@@ -38,9 +42,8 @@ export default function Products() {
     indexOfFirstProduct,
     indexOfLastProduct
   );
-  
+
   // function getAllProducts() {
-    
 
   //   dispatch(getProduct({ genre: genre }));
   // }
@@ -50,22 +53,27 @@ export default function Products() {
   }
 
   useEffect(() => {
-    console.log(user)
-    if (backInfo && user){
-      const product = JSON.parse(localStorage.getItem('cart'))
-      if(product){
-        dispatch(process_payment({data: backInfo, body:{product: product, user:user.email }}))
+    console.log(user);
+    if (backInfo && user) {
+      const product = JSON.parse(localStorage.getItem("cart"));
+      if (product) {
+        dispatch(
+          process_payment({
+            data: backInfo,
+            body: { product: product, user: user.email },
+          })
+        );
         paymentStatus === "approved" && localStorage.removeItem("cart");
-        navegate("/products")
+        navegate("/products");
       }
     }
-    if(user){
-      dispatch(userType(user.email))
+    if (user) {
+      dispatch(userType(user.email));
     }
     dispatch(getProduct({ genre: genre }));
     dispatch(getCategories({ genre: genre }));
     dispatch(getBrand({ genre: genre }));
-    dispatch(resetAllComments())
+    dispatch(resetAllComments());
   }, [dispatch, genre, user]);
 
   // const localStorageCard = localStorage.getItem("cartProducts");
@@ -116,7 +124,7 @@ export default function Products() {
   // console.log(objCart2, "obj")
 
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       <NavBar />
       <div className="productsCards">
         <h1>Productos</h1>
@@ -143,13 +151,13 @@ export default function Products() {
         </div>
       </div>
       <div className="mb-4">
-      <Paginado
-        productPerPage={productPerPage}
-        currentPage={currentPage}
-        Products={Products.length}
-        paginado={paginado}
+        <Paginado
+          productPerPage={productPerPage}
+          currentPage={currentPage}
+          Products={Products.length}
+          paginado={paginado}
         />
-        </div>
+      </div>
     </div>
   );
 }
